@@ -664,3 +664,22 @@ join kategori on (produk.id_kategori = kategori.id);
 
 select p.id as 'produk_id', p.nama as 'nama produk', k.id as 'kategori_id', k.nama as 'nama kategori' from produk as p
 join kategori as k on (p.id_kategori = k.id);
+
+#JENIS JOIN
+
+#--cross join
+
+create table numbers (
+	idn int not null auto_increment,
+    primary key (idn)
+    );
+
+select * from numbers;
+insert into numbers values (1), (2), (3);
+
+#membuat tabel perkalian
+
+select * from numbers as num1 cross join numbers as num2;
+
+select num1.idn, num2.idn, (num1.idn * num2.idn) as result from numbers as num1 cross join numbers as num2 
+order by num1.idn, num2.idn;
